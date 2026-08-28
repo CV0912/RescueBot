@@ -1,0 +1,18 @@
+material AprilTag/Tag0
+{
+    technique
+    {
+        pass
+        {
+            lighting off
+            cull_hardware none
+
+            texture_unit
+            {
+                texture tag0.png 2d
+                filtering none
+                mipmaps false
+            }
+        }
+    }
+}

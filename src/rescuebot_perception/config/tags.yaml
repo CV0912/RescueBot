@@ -1,0 +1,14 @@
+/**:
+  ros__parameters:
+    image_transport: raw     # we bridge raw images from Gazebo, no rectification node in the pipeline
+    family: 36h11
+    size: 0.20                # default edge length (m) of the *inner* black square, in case a tag isn't listed below
+    max_hamming: 0
+    z_up: true
+
+    # Per-tag overrides. Add one entry per tag id/frame/size to keep this in sync
+    # as you add more tags to the world (rescuebot_gazebo world currently has apriltag_0..6).
+    tag:
+      ids: [0, 1, 2, 3, 4, 5, 6]
+      frames: [tag_0, tag_1, tag_2, tag_3, tag_4, tag_5, tag_6]
+      sizes: [0.20, 0.20, 0.20, 0.20, 0.20, 0.20, 0.20]

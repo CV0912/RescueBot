@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="Untitled">
+    <RecoveryNode number_of_retries="1">
+      <Sequence>
+        <Spin spin_dist="1.52"
+              />
+        <Wait wait_duration="5"
+              />
+        <BackUp backup_dist="0.3"
+                backup_speed="0.15"
+                />
+      </Sequence>
+      <PipelineSequence>
+        <RateController hz="1">
+          <ComputePathToPose goal="{goal}"
+                             start=""
+                             planner_id="GridBased"
+                             server_name=""
+                             server_timeout=""
+                             path="{path}"/>
+        </RateController>
+        <FollowPath controller_id="FollowPath"
+                    path="{path}"
+                    />
+      </PipelineSequence>
+    </RecoveryNode>
+  </BehaviorTree>
+</root>

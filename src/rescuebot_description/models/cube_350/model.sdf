@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.9">
+  <model name="cube_350">
+
+    <static>false</static>
+
+    <link name="cube_link">
+
+      <!-- Visual -->
+      <visual name="visual">
+
+        <geometry>
+          <box>
+            <size>0.35 0.35 0.35</size>
+          </box>
+        </geometry>
+
+        <material>
+          <ambient>0.8 0.2 0.2 1</ambient>
+          <diffuse>0.8 0.2 0.2 1</diffuse>
+        </material>
+
+      </visual>
+
+      <!-- Collision -->
+      <collision name="collision">
+
+        <geometry>
+          <box>
+            <size>0.35 0.35 0.35</size>
+          </box>
+        </geometry>
+
+      </collision>
+
+      <!-- Physics -->
+    <inertial>
+        <mass>0.700</mass>
+
+        <inertia>
+            <ixx>0.014292</ixx>
+            <iyy>0.014292</iyy>
+            <izz>0.014292</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+        </inertia>
+    </inertial>
+
+    </link>
+
+  </model>
+</sdf>

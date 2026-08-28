@@ -1,0 +1,10 @@
+<library path="mecanum_firmware">
+    <class name="mecanum_firmware/MecanumInterface"
+      type="mecanum_firmware::MecanumInterface"
+      base_class_type="hardware_interface::SystemInterface"
+    >
+      <description>
+        Mecanum Hardware Interface
+      </description>
+    </class>      
+  </library>

@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="khushi" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:arg name="is_ignition" default="true"/>
+  <!-- Load Simulated or Real Hardware Interfaces -->
+  <xacro:arg name="is_sim" default="true"/>
+  <xacro:include filename="$(find rescuebot_description)/urdf/rescuebot_gazebo.xacro" />
+  <xacro:include filename="$(find rescuebot_description)/urdf/rescuebot_controller.xacro" />
+  <!-- Start GZ or Ignition depending on ROS 2 Version -->
+
+    <xacro:property name="wheel_radius" value="0.075" />
+  <xacro:property name="wheel_width" value="0.045" />
+  <link name="base_link"/>
+  <link
+    name="base_footprint">
+    <inertial>
+      <origin
+        xyz="-0.00344097646572193 1.15861730799749E-10 0.203700358764841"
+        rpy="0 0 0" />
+      <mass
+        value="2.53849626473603" />
+      <inertia
+        ixx="0.0257925646095819"
+        ixy="-4.97501635283554E-08"
+        ixz="8.81584580865291E-08"
+        iyy="0.0274840815713721"
+        iyz="-3.61932361124975E-08"
+        izz="0.0224309847006996" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/base_link.STL" />
+      </geometry>
+      <material name="pink"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_footprint" />
+    <origin xyz="0 0 0.033" rpy="0 0 0"/>
+  </joint>
+  <link
+    name="fr">
+    <inertial>
+      <origin
+        xyz="-1.22124532708767E-15 3.33066907387547E-16 0.022962865557422"
+        rpy="0 0 0" />
+      <mass
+        value="0.433592815546532" />
+      <inertia
+        ixx="0.000273627897997469"
+        ixy="1.25767452008319E-17"
+        ixz="-4.95289756123508E-17"
+        iyy="0.000273627897997509"
+        iyz="7.0342338043324E-18"
+        izz="0.00046432105050301" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/fr.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/fr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheelFR"
+    type="continuous">
+    <origin
+      xyz="0.115 -0.1815 0.07794"
+      rpy="1.5708 -0.80736 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="fr" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="fl">
+    <inertial>
+      <origin
+        xyz="1.11022302462516E-15 -6.10622663543836E-16 -0.0229628655540528"
+        rpy="0 0 0" />
+      <mass
+        value="0.433593810211599" />
+      <inertia
+        ixx="0.000273630232361917"
+        ixy="-5.77744232663213E-17"
+        ixz="1.35349569198135E-16"
+        iyy="0.000273630232361795"
+        iyz="-3.39202264440468E-17"
+        izz="0.000464325537636886" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/fl.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/fl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheelFL"
+    type="continuous">
+    <origin
+      xyz="0.115 0.1815 0.07794"
+      rpy="1.5708 -1.1096 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="fl" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="rr">
+    <inertial>
+      <origin
+        xyz="-4.44089209850063E-16 1.08246744900953E-15 0.0229593062032201"
+        rpy="0 0 0" />
+      <mass
+        value="0.433593810211599" />
+      <inertia
+        ixx="0.00027363023236197"
+        ixy="7.91128772735517E-17"
+        ixz="-1.2686717542318E-16"
+        iyy="0.000273630232362066"
+        iyz="-4.30019126330479E-17"
+        izz="0.000464325537636998" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/rr.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/rr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheelRR"
+    type="continuous">
+    <origin
+      xyz="-0.115 -0.1815 0.07794"
+      rpy="1.5708 1.2418 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="rr" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="rl">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-16 -2.22044604925031E-16 -0.0229593061998497"
+        rpy="0 0 0" />
+      <mass
+        value="0.433592815546532" />
+      <inertia
+        ixx="0.000273627897997421"
+        ixy="3.21906401274524E-17"
+        ixz="-8.17197972863814E-17"
+        iyy="0.000273627897997461"
+        iyz="-1.93305585989475E-17"
+        izz="0.000464321050502978" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/rl.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/rl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheelRL"
+    type="continuous">
+    <origin
+      xyz="-0.115 0.1815 0.07794"
+      rpy="1.5708 -0.14385 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="rl" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="box_grip1">
+    <inertial>
+      <origin
+        xyz="0.144592631146243 -0.0615630771665218 -0.0173374553231669"
+        rpy="0 0 0" />
+      <mass
+        value="0.287631970565472" />
+      <inertia
+        ixx="0.000708305625760804"
+        ixy="-6.82034093320994E-20"
+        ixz="3.49464829569615E-20"
+        iyy="0.000216444004975404"
+        iyz="-1.53895175053768E-08"
+        izz="0.000838952438468555" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/box_grip1.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/box_grip1.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="front_slot"
+    type="prismatic">
+    <origin
+      xyz="0.24 0 0.39915"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="box_grip1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.28"
+      upper="0.195"
+      effort="100"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="pnem">
+    <inertial>
+      <origin
+        xyz="0.0449620020758136 0.000534032313771027 -0.0235912959585422"
+        rpy="0 0 0" />
+      <mass
+        value="0.0476628226059405" />
+      <inertia
+        ixx="1.85103889283091E-05"
+        ixy="-3.93963783513602E-21"
+        ixz="-1.90880544445586E-21"
+        iyy="0.000126866861795821"
+        iyz="1.76465093957735E-19"
+        izz="0.000110653738395026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/pnem.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/pnem.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="front"
+    type="prismatic">
+    <origin
+      xyz="0.152 -0.19747 -0.006325"
+      rpy="1.5708 0 0" />
+    <parent
+      link="box_grip1" />
+    <child
+      link="pnem" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.05"
+      effort="100"
+      velocity="0.6" />
+  </joint>
+  <link
+    name="box_grip2">
+    <inertial>
+      <origin
+        xyz="-0.144592631146245 0.0615630771665221 0.00109206424415387"
+        rpy="0 0 0" />
+      <mass
+        value="0.287631970565473" />
+      <inertia
+        ixx="0.000708305625760805"
+        ixy="-9.88611830361174E-20"
+        ixz="5.05048371217465E-20"
+        iyy="0.000216444004975406"
+        iyz="1.53895175053312E-08"
+        izz="0.000838952438468558" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/box_grip2.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/box_grip2.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="back_slot"
+    type="prismatic">
+    <origin
+      xyz="-0.24 0 0.39915"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="box_grip2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.28"
+      upper="0.180"
+      effort="100"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="pnem2">
+    <inertial>
+      <origin
+        xyz="-0.0449620020758137 -0.000534032313770583 -0.0235912959585564"
+        rpy="0 0 0" />
+      <mass
+        value="0.0476628226059404" />
+      <inertia
+        ixx="1.85103889283091E-05"
+        ixy="-1.11066628185272E-20"
+        ixz="-3.95773861193809E-21"
+        iyy="0.00012686686179582"
+        iyz="6.60520069295455E-21"
+        izz="0.000110653738395026" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/pnem2.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rescuebot_description/meshes/pnem2.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="back"
+    type="prismatic">
+    <origin
+      xyz="-0.152 0.19748 0.012105"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="box_grip2" />
+    <child
+      link="pnem2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.07"
+      effort="100"
+      velocity="0.6" />
+  </joint>
+   <link name="imu_link">
+    <inertial>
+      <origin
+        xyz="-0.00552433659106688 0.000168210391520346 0.000514000497342681"
+        rpy="0 0 0" />
+      <mass value="0.000528415362211671" />
+      <inertia
+        ixx="1.46176048428261E-08"
+        ixy="1.40015117949421E-10"
+        ixz="-1.99633872937403E-12"
+        iyy="8.59662482954888E-09"
+        iyz="7.52375112767959E-12"
+        izz="2.30279421279312E-08" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rescuebot_description/meshes/imu_link.STL" />
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rescuebot_description/meshes/imu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <origin
+      xyz="0 0 0.0698986241758014"
+      rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="imu_link" />
+  </joint>
+
+
+  <!-- ==================== LASER / LIDAR ==================== -->
+
+  <link name="laser_link">
+    <inertial>
+      <origin
+        xyz="-0.011945780406062 -0.000381929217680526 -0.0170649378129477"
+        rpy="0 0 0" />
+      <mass value="0.073084435549317" />
+      <inertia
+        ixx="1.96074931730795E-05"
+        ixy="-3.62091076640009E-07"
+        ixz="4.28230084046735E-07"
+        iyy="2.40983835136327E-05"
+        iyz="1.50180909250652E-08"
+        izz="4.14184164228595E-05" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rescuebot_description/meshes/laser_link.STL" />
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rescuebot_description/meshes/laser_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="laser_joint" type="fixed">
+    <origin
+      xyz="-0.0050526 -0.0023221 0.65"
+      rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="laser_link" />
+  </joint>
+  <link name="camera_link">
+  <visual>
+    <geometry><sphere radius="0.025" /></geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <geometry><sphere radius="0.025" /></geometry>
+  </collision>
+</link>
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.30 0 0.55" rpy="0 0 0" />
+  <parent link="base_footprint" />
+  <child link="camera_link" />
+</joint>
+
+<!-- Gazebo cameras publish in an "optical" frame (Z forward, X right, Y down),
+     which is rotated relative to the ROS convention used by camera_link
+     (X forward, Z up). This dummy frame lets the sensor plugin below
+     publish images with the correct orientation/frame_id. -->
+<link name="camera_link_optical"></link>
+
+<joint name="camera_optical_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="-1.5707963267948966 0 -1.5707963267948966" />
+  <parent link="camera_link" />
+  <child link="camera_link_optical" />
+</joint>
+  <material name="pink">
+    <color rgba="1 0 0.1 1"/>
+  </material>
+
+  <material name="black">
+  <color rgba="0 0 0 1"/>
+  </material>
+</robot>

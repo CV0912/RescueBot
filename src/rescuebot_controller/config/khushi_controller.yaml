@@ -1,0 +1,52 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000 # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    mecanum_drive_controller:
+      type: mecanum_drive_controller/MecanumDriveController
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    # prismatic_controller:
+    #   type: position_controllers/JointGroupPositionController
+
+
+
+mecanum_drive_controller:
+  ros__parameters:
+    reference_timeout: 5.0
+    use_stamped_vel: true
+    # in_chained_mode: false
+
+    # front_left_wheel_command_joint_name: "Wheel_fl_joint"
+    # front_right_wheel_command_joint_name: "Wheel_fr_joint"
+    # rear_right_wheel_command_joint_name: "Wheel_rr_joint"
+    # rear_left_wheel_command_joint_name: "Wheel_rl_joint"
+    front_left_wheel_command_joint_name: "wheelFL"
+    front_right_wheel_command_joint_name: "wheelFR"
+    rear_right_wheel_command_joint_name: "wheelRR"
+    rear_left_wheel_command_joint_name: "wheelRL"
+
+    kinematics:
+      base_frame_offset: { x: 0.0, y: 0.0, theta: 0.0 }
+      wheels_radius: 0.075
+      sum_of_robot_center_projection_on_X_Y_axis: 0.2965  
+
+    base_frame_id: "base_link"
+    odom_frame_id: "odom"
+    # enable_odom_tf: true
+
+    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001]
+
+# prismatic_controller:
+#   ros__parameters:
+#     joints:
+#       - front_slot
+#       - front
+#       - back_slot
+#       - back
