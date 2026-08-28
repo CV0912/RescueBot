@@ -105,7 +105,7 @@ def generate_launch_description():
         joystick,
         slam,
         navigation,
-        # camera_pub,
-        # exploration,
-        # april_tag_detection,
+        camera_pub,
+        exploration,
+        april_tag_detection,
     ])
