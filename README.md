@@ -146,7 +146,6 @@ ros2 launch rescuebot_mapping slam.launch.py
 ## Known Issues / Work in Progress
 
 - Camera intrinsics in `camera_publisher.py` are a rough placeholder (not a real calibration) — AprilTag pose estimates will be inaccurate until the camera is properly calibrated.
-- Camera publishing, AprilTag detection, and frontier exploration are disabled by default in `real_robot.launch.py` pending hardware camera setup.
 - `dijkstra_planner.py` / `a_star_planner.py` are standalone planners separate from the Nav2 `planner_server` — not yet wired into the main navigation pipeline.
 - `simple_controller` / `diff_drive_controller` paths exist in config as alternates to the primary `mecanum_drive_controller` but aren't the default flow.
 
