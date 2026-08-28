@@ -4,8 +4,15 @@ Autonomous 4-wheeled search-and-rescue robot built on **ROS2 Humble**, with a cu
 
 ---
 
+## Demo
+
+![RescueBot Demo](docs/demo.gif)
+
+---
+
 ## Table of Contents
 
+- [Demo](#demo)
 - [Overview](#overview)
 - [System Architecture](#system-architecture)
 - [Package Reference](#package-reference)
