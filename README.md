@@ -152,4 +152,6 @@ ros2 launch rescuebot_mapping slam.launch.py
 
 ## License
 
-_Add a license file to specify how this project can be used/modified._
+This project is licensed under the [MIT License](LICENSE) © 2026 CV0912.
+
+Note: `src/frontier-exploration-ros2` is a separate third-party package included as a git submodule, licensed under its own terms (Apache License 2.0) — see `src/frontier-exploration-ros2/LICENSE`.
