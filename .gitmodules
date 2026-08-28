@@ -1,0 +1,3 @@
+[submodule "src/frontier-exploration-ros2"]
+	path = src/frontier-exploration-ros2
+	url = https://github.com/mertgulerx/frontier-exploration-ros2.git
