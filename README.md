@@ -107,6 +107,24 @@ source install/setup.bash
 
 > Note: `src/frontier-exploration-ros2` is tracked as its own git repository inside this one. If cloning fresh and it doesn't need to stay linked to upstream, either `git submodule add` it properly or vendor it in — see the package's own instructions if it's set up as a submodule.
 
+### Local Path Configuration
+
+Some paths in the project may use the absolute home directory
+`/home/kira/`, which is specific to the original development
+machine.
+
+When running the project on another system, replace `/home/kira/`
+with the corresponding path to your own home directory, or use
+`~` / `$HOME` where applicable.
+
+For example:
+
+/home/kira/RescueBot
+
+should correspond to:
+
+/home/<your-username>/RescueBot
+
 ## Usage
 
 **Simulation (Gazebo, with SLAM, RViz, navigation, exploration, and AprilTag detection):**
